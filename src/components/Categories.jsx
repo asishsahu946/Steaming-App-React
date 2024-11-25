@@ -33,7 +33,7 @@ function Categories() {
       setIsFetching(true);
       const fetchAllPages = async () => {
         const allMovies = [];
-        for (let page = 1; page <= 10; page++) {
+        for (let page = 1; page <= 15; page++) {
           try {
             const response = await fetch(
               `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genresId}`,
@@ -55,7 +55,7 @@ function Categories() {
   }, [genresId]);
 
   return (
-    <div>
+    <div className='bg-black2 text-white pb-11'>
       <div>
         <div>
           <h1>Explore our wide variety of categories</h1>
@@ -64,19 +64,19 @@ function Categories() {
             make you think, or a documentary to learn something new
           </p>
         </div>
-        <div className='flex gap-3'>
+        <div className='flex gap-3 flex-shrink-0'>
           {/* Genres and Movies Card */}
-          {genresList.filter((list) =>  ![99, 10402, 9648, 10770,37].includes(list.id))
+          {genresList.filter((list) =>  ![99, 10402, 9648, 10770,37].includes(list.id)).slice(0,5)
           .map((genre,index) => (
-            <div key={index}>
-              <div className='grid grid-cols-2'>
+            <div className='bg-black3 border border-black5 px-3 py-2' key={index}>
+              <div className='grid grid-cols-2 gap-2'>
                 {genresDetails
                   .filter((movie) => movie.genre_ids.includes(genre.id))
                   .slice(0, 4)
                   .map((movie,index) => (
                     <div key={index} className=''>
                       {movie.backdrop_path ? (
-                        <img
+                        <img className='rounded-lg'
                           src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                           alt=''
                         />
@@ -86,7 +86,10 @@ function Categories() {
                     </div>
                   ))}
               </div>
+              <div className='flex justify-between'>
               <h2>{genre.name}</h2>
+              <button>-</button>
+              </div>
             </div>
           ))}
         </div>
