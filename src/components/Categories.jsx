@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {assets} from '../assets/assets'
+import { assets } from '../assets/assets';
 
 function Categories() {
   const [genresList, setGenresList] = useState([]); // List of genres
@@ -27,21 +27,30 @@ function Categories() {
       .catch((error) => console.error('Error fetching genres:', error));
   }, []);
 
-  // Fetch movies based on selected genre ID
+  // Fetch movies for multiple pages based on selected genre ID
   useEffect(() => {
     if (genresId) {
       setIsFetching(true);
-      fetch(
-        `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genresId}`,
-        options
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          setGenresDetails(data.results);
-          console.log('genresDetails', data.results);
-        })
-        .catch((error) => console.error('Error fetching genre details:', error))
-        .finally(() => setIsFetching(false));
+      const fetchAllPages = async () => {
+        const allMovies = [];
+        for (let page = 1; page <= 10; page++) {
+          try {
+            const response = await fetch(
+              `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genresId}`,
+              options
+            );
+            const data = await response.json();
+            allMovies.push(...data.results);
+          } catch (error) {
+            console.error(`Error fetching page ${page}:`, error);
+          }
+        }
+        setGenresDetails(allMovies);
+        setIsFetching(false);
+        console.log('Fetched all pages:', allMovies);
+      };
+
+      fetchAllPages();
     }
   }, [genresId]);
 
@@ -55,21 +64,25 @@ function Categories() {
             make you think, or a documentary to learn something new
           </p>
         </div>
-        {/* /Problem Starts hear */}
-        <div className='flex'>
+        <div className='flex gap-3'>
           {/* Genres and Movies Card */}
-          {genresList.map((genre) => (
-            <div key={genre.id} >
-              <div className='grid grid-cols-2' >
+          {genresList.filter((list) =>  ![99, 10402, 9648, 10770,37].includes(list.id))
+          .map((genre,index) => (
+            <div key={index}>
+              <div className='grid grid-cols-2'>
                 {genresDetails
                   .filter((movie) => movie.genre_ids.includes(genre.id))
                   .slice(0, 4)
-                  .map((movie) => (
-                    <div key={movie.id} className=''>
-                      <img
-                        src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} //i want if movie.backdrop_path not available then show 'not available'
-                        alt=''
+                  .map((movie,index) => (
+                    <div key={index} className=''>
+                      {movie.backdrop_path ? (
+                        <img
+                          src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                          alt=''
                         />
+                      ) : (
+                        <img src={assets.abstract} alt='' />
+                      )}
                     </div>
                   ))}
               </div>
