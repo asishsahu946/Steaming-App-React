@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {assets} from '../assets/assets'
 
 function Categories() {
   const [genresList, setGenresList] = useState([]); // List of genres
@@ -21,6 +22,7 @@ function Categories() {
       .then((response) => response.json())
       .then((data) => {
         setGenresList(data.genres);
+        console.log('genresList', data.genres);
       })
       .catch((error) => console.error('Error fetching genres:', error));
   }, []);
@@ -36,7 +38,7 @@ function Categories() {
         .then((response) => response.json())
         .then((data) => {
           setGenresDetails(data.results);
-          console.log(data.results);
+          console.log('genresDetails', data.results);
         })
         .catch((error) => console.error('Error fetching genre details:', error))
         .finally(() => setIsFetching(false));
@@ -53,26 +55,25 @@ function Categories() {
             make you think, or a documentary to learn something new
           </p>
         </div>
-        <div>
+        {/* /Problem Starts hear */}
+        <div className='flex'>
           {/* Genres and Movies Card */}
           {genresList.map((genre) => (
-            <div key={genre.id} style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
-              <h2>{genre.name}</h2>
-              <div style={{ display: 'flex', gap: '10px', overflowX: 'auto' }}>
+            <div key={genre.id} >
+              <div className='grid grid-cols-2' >
                 {genresDetails
                   .filter((movie) => movie.genre_ids.includes(genre.id))
                   .slice(0, 4)
                   .map((movie) => (
-                    <div key={movie.id}>
+                    <div key={movie.id} className=''>
                       <img
-                        src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-                        alt={movie.title}
-                        style={{ width: '150px', height: '100px', objectFit: 'cover' }}
-                      />
-                      
+                        src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} //i want if movie.backdrop_path not available then show 'not available'
+                        alt=''
+                        />
                     </div>
                   ))}
               </div>
+              <h2>{genre.name}</h2>
             </div>
           ))}
         </div>
