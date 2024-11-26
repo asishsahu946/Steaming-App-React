@@ -10,8 +10,9 @@ This is a Streaming plartform with latest movies update with trailer and details
 
 ## Website Template Used
 
-``https://www.figma.com/design/QEQQaLpTXrCHcDHK2YGbHb/OTT-Dark-Theme-Website-UI-Design-Template-for-Media-Streaming%2C-Movies-and-TV-(-FREE-Editable-)-(Community)?t=2uf0VjGW9BDyJdyb-0
-``
+```http
+  https://www.figma.com/design/QEQQaLpTXrCHcDHK2YGbHb/OTT-Dark-Theme-Website-UI-Design-Template-for-Media-Streaming%2C-Movies-and-TV-(-FREE-Editable-)-(Community)?t=2uf0VjGW9BDyJdyb-0
+```
 ## API Reference
 
 #### Get all items
