@@ -5,7 +5,8 @@ import threeLine from './threeLineNavBar.svg'
 import abstract from './Abstract_Design.png'
 import topGradiant from './Fade_Out_Top.png'
 import bottomGradiant from './Fade_Out_Bottom.png'
-import playButton from './playBtn.png'      
+import playButton from './playBtn.png'
+import rightbtn from './rightButton.png'
 
 export const assets = {
     mobileLogo,
@@ -15,5 +16,6 @@ export const assets = {
     abstract,
     topGradiant,
     bottomGradiant,
-    playButton
+    playButton,
+    rightbtn
 }

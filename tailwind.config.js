@@ -1,9 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+const withMT = require("@material-tailwind/react/utils/withMT");
+module.exports = withMT({
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
@@ -14,16 +11,16 @@ export default {
       'desktop' : {'max': '1920px'},
       'laptop' : {'max': '1440px'},
       'mobile' : {'max': '390px'},
-      '2xl': {'max': '1535px'}, // => @media (max-width: 1535px) { ... }
-      'xl': {'max': '1279px'}, // => @media (max-width: 1279px) { ... }
-      'lg': {'max': '1023px'}, // => @media (max-width: 1023px) { ... }
-      'md': {'max': '767px'}, // => @media (max-width: 767px) { ... }
-      'sm': {'max': '639px'}, // => @media (max-width: 639px) { ... }
-      '2xl-max': '1535px', 
-      'xl-max': '1279px', 
-      'lg-max': '1023px', 
-      'md-max': '767px', 
-      'sm-max': '639px', 
+      '2xl-max': {'max': '1535px'}, // => @media (max-width: 1535px) { ... }
+      'xl-max': {'max': '1279px'}, // => @media (max-width: 1279px) { ... }
+      'lg-max': {'max': '1023px'}, // => @media (max-width: 1023px) { ... }
+      'md-max': {'max': '767px'}, // => @media (max-width: 767px) { ... }
+      'sm-max': {'max': '639px'}, // => @media (max-width: 639px) { ... }
+      '2xl': '1535px', 
+      'xl': '1279px', 
+      'lg': '1023px', 
+      'md': '767px', 
+      'sm': '639px', 
     },
     colors: {
       'white' : '#fff',
@@ -55,4 +52,4 @@ export default {
     }
   },
   plugins: [],
-}
+});
