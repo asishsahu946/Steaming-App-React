@@ -8,7 +8,7 @@ function NavigationBar() {
   const [toggleSearch, setToggleSearch] = useState(false)
 
   return (
-        <div className="bg-transparent text-[white] flex items-center justify-between px-10 py-4 sm:px-2 sticky top-0 z-50">
+        <div className="bg-transparent text-[white] flex items-center justify-between px-8 py-4 sm:px-2 sticky top-0 z-50">
     <div>
         <img
           className="w-full laptop:w-[160px] sm:w-[100px] "
