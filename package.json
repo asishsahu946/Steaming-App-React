@@ -1,12 +1,12 @@
 {
-  "homepage" : "https://asishsahu946/github.io/Steaming-App-React",
+  "homepage": "https://asishsahu946/github.io/Steaming-App-React",
   "name": "10",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy" : "npm run build",
-    "deploy" :"gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
