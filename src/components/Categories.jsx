@@ -49,7 +49,6 @@ function Categories() {
         setIsFetching(false);
         console.log("Fetched all pages:", allMovies);
       };
-
       fetchAllPages();
     }
   }, [genresId]);

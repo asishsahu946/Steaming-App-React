@@ -1,9 +1,11 @@
-import React from 'react'
-import NavigationBar from '../components/NavigationBar'
+import React, { useEffect } from 'react'
 import HeroSection from '../components/HeroSection'
 import Categories from '../components/Categories'
 
-function Home() {
+function Home({setProgress}) {
+  useEffect(() =>{
+    setProgress(50)
+  })
   return (
     <div>
         <HeroSection/>
