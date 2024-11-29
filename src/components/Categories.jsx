@@ -54,7 +54,7 @@ function Categories() {
   }, [genresId]);
 
   return (
-    <div className="bg-black2 text-white pb-11 px-10">
+    <div className="bg-black2 text-white pb-11 px-20 xl-max:px-10 sm-max:px-3 ">
       <div>
         <div>
           <h1 className="font-semibold text-4xl xl-max:text-3xl sm-max:text-xl">
@@ -69,7 +69,7 @@ function Categories() {
           {/* Genres and Movies Card */}
           {genresList
             .filter((list) => ![99, 10402, 9648, 10770, 37].includes(list.id))
-            .slice(0, 5)
+            .slice(0, 2)
             .map((genre, index) => (
               <div
                 className="bg-black3 border border-black5 px-3 py-4 rounded-xl"
