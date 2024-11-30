@@ -5,6 +5,9 @@ module.exports = withMT({
     extend: {
       fontFamily: {
        'sans': ['"Manrope"'],
+      },
+      backgroundColor: {
+        'custom-bg': '#141414', // Example custom color
       }
     },
     screens: {

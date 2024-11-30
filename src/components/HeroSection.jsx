@@ -86,7 +86,7 @@ function HeroSection() {
         </p>
         <button className="mt-10 bg-red1 px-2 sm-max:px1 py-3 xl-max:py-2 sm-max:py-1 sm-max:text-sm flex items-center rounded-xl">
           <img className="inline sm-max:w-6" src={assets.playButton} alt="" />{" "}
-          Start Watching Now
+          Watching Now
         </button>
       </div>
     </div>

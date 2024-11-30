@@ -1,11 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { assets } from "../assets/assets";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 function Categories() {
   const [genresList, setGenresList] = useState([]); // List of genres
   const [genresDetails, setGenresDetails] = useState([]); // Movies by selected genre
   const [genresId, setGenresId] = useState("28"); // Default genre ID (Action in TMDB)
   const [isFetching, setIsFetching] = useState(true); // To track if data is being fetched
+
+  const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+    slidesToSlide: 5
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 5,
+    slidesToSlide: 5
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 
   const options = {
     method: "GET",
@@ -65,14 +89,14 @@ function Categories() {
             make you think, or a documentary to learn something new
           </p>
         </div>
-        <div className="flex gap-2 pt-10">
+        <Carousel responsive={responsive}  removeArrowOnDeviceType={["tablet", "mobile"]} className="mt-12">
           {/* Genres and Movies Card */}
           {genresList
             .filter((list) => ![99, 10402, 9648, 10770, 37].includes(list.id))
-            .slice(0, 2)
+            .slice()
             .map((genre, index) => (
               <div
-                className="bg-black3 border border-black5 px-3 py-4 rounded-xl"
+                className="bg-black3 border border-black5 px-3 py-4 rounded-xl mx-2"
                 key={index}
               >
                 <div className="grid grid-cols-2 gap-2">
@@ -81,15 +105,11 @@ function Categories() {
                     .slice(0, 4)
                     .map((movie, index) => (
                       <div key={index} className="">
-                        {movie.backdrop_path ? (
                           <img
                             className="rounded-lg"
-                            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} 
                             alt=""
                           />
-                        ) : (
-                          <img src={assets.abstract} alt="" />
-                        )}
                       </div>
                     ))}
                 </div>
@@ -101,7 +121,7 @@ function Categories() {
                 </div>
               </div>
             ))}
-        </div>
+        </Carousel>
       </div>
     </div>
   );

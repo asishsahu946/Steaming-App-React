@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <LoadingBar
-        height = {7}
+        height = {3}
         color='rgb(229, 0, 0)'
         progress={progress}
         onLoaderFinished={() => setProgress(0)}

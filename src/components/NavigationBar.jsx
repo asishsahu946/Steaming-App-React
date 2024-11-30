@@ -1,18 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { assets } from "../assets/assets";
 import { NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 function NavigationBar() {
   const [toggleSearch, setToggleSearch] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Add scroll event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="bg-transparent text-[white] flex items-center justify-between px-8 py-4 sm-max:px-2 sticky top-0 z-50">
+    <div
+      className={`flex items-center justify-between px-8 py-4 sm-max:px-2 sticky top-0 z-[99999] transition-all duration-300 ${
+        isScrolled ? "bg-black text-white" : "bg-transparent text-white"
+      }`}
+    >
       <div>
         <img
-          className="w-full laptop:w-[160px] sm-max:w-[100px] "
+          className="w-full laptop:w-[160px] sm-max:w-[100px]"
           src={assets.desktopLogo}
-          alt=""
+          alt="Logo"
         />
       </div>
 
@@ -20,8 +43,8 @@ function NavigationBar() {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `py-2 px-3  rounded-lg text-center ${
-              isActive ? "font-semibold bg-black3 text-white" : "text-gray4 "
+            `py-2 px-3 rounded-lg text-center ${
+              isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
         >
@@ -31,7 +54,7 @@ function NavigationBar() {
           to="/movie&shows"
           className={({ isActive }) =>
             `py-2 px-3 rounded-lg text-center ${
-              isActive ? "font-semibold bg-black3 text-white" : "text-gray4 "
+              isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
         >
@@ -41,7 +64,7 @@ function NavigationBar() {
           to="/support"
           className={({ isActive }) =>
             `py-2 px-3 rounded-lg text-center ${
-              isActive ? "font-semibold bg-black3 text-white" : "text-gray4 "
+              isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
         >
@@ -51,7 +74,7 @@ function NavigationBar() {
           to="/upgradesubscription"
           className={({ isActive }) =>
             `py-2 px-3 rounded-lg text-center ${
-              isActive ? "font-semibold bg-black3 text-white" : "text-gray4 "
+              isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
         >
@@ -61,9 +84,7 @@ function NavigationBar() {
 
       <div className="flex items-center">
         <FaSearch
-          onClick={() =>
-            toggleSearch ? setToggleSearch(false) : setToggleSearch(true)
-          }
+          onClick={() => setToggleSearch(!toggleSearch)}
           className="inline w-12 z-10 relative sm-max:hidden"
         />
         <input
@@ -75,7 +96,7 @@ function NavigationBar() {
         <img
           className="w-7 sm-max:w-5 lg:hidden"
           src={assets.threeLine}
-          alt=""
+          alt="Menu Icon"
         />
       </div>
     </div>
