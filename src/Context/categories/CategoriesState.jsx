@@ -67,4 +67,4 @@ const CategoriesState = (props) => {
     );
 };
 
-export default CategoriesState;
+export { default as CategoriesState } from './CategoriesState';
