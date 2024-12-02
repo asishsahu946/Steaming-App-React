@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import categoriesContext from "./CategoriesContext";
+import CategoriesContext from "./CategoriesContext";
 
 const CategoriesState = (props) => {
     const [genresList, setGenresList] = useState([]); // List of genres
@@ -54,7 +54,7 @@ const CategoriesState = (props) => {
     }, [genresId]);
   
     return (
-        <categoriesContext.Provider 
+        <CategoriesContext.Provider 
             value={{
                 genresList,
                 genresDetails,
@@ -63,7 +63,7 @@ const CategoriesState = (props) => {
             }}
         >
             {props.children}
-        </categoriesContext.Provider>
+        </CategoriesContext.Provider>
     );
 };
 

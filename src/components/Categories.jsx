@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useNavigate } from "react-router-dom";
-import categoriesContext from '../Context/categories/CategoriesContext'
+import CategoriesContext from '../Context/categories/CategoriesContext'
 
  function Categories() {
   const navigate = useNavigate()
@@ -29,7 +29,7 @@ import categoriesContext from '../Context/categories/CategoriesContext'
     items: 1
   }
 };
-const { genresList, genresDetails} = useContext(categoriesContext);
+const { genresList, genresDetails} = useContext(CategoriesContext);
   return (
 
 
