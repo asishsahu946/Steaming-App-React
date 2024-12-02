@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import categoriesContext from '../Context/categories/CategoriesContext'
+import categoriesContext from '../context/categories/CategoriesContext'
 
 function CategoriesList() {
   const { genresList, genresDetails, genresId, setGenresId, isFetching } = useContext(categoriesContext);
