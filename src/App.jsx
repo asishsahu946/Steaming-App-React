@@ -15,14 +15,14 @@ import CategoriesState from "./context/categories/CategoriesState.jsx";
 function App() {
   const [progress, setProgress] = useState(0)
   return (
-    <CategoriesState>
     <div>
+      <CategoriesState>
       <LoadingBar
         height = {3}
         color='rgb(229, 0, 0)'
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
-      />
+        />
      <NavigationBar/>
     <Routes>
       <Route path="/" element={<Home setProgress= {setProgress}/>} />
@@ -34,8 +34,8 @@ function App() {
       <Route path="/upgradesubscription" element={<UpgradeSubscription/>} />
     </Routes>
     <Footer/>
-    </div>
     </CategoriesState>
+    </div>
   )
 }
 
