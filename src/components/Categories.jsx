@@ -54,7 +54,7 @@ function Categories() {
               <div
                 className="bg-black3 border border-black5 px-3 py-4 rounded-xl mx-2"
                 key={index}
-                onClick={() => navigate("/categoriesList")}
+                onClick={() => navigate("/categoriesList", { state: { genreName: genre.name } })}
               >
                 <div className="grid grid-cols-2 gap-2">
                   {genresDetails
@@ -71,7 +71,7 @@ function Categories() {
                     ))}
                 </div>
                 <div className="flex justify-between px-1 mt-2">
-                  <h2>{genre.name}</h2>
+                  <h2>{genre.name}</h2> 
                   <button>
                     <img src={assets.rightbtn} alt="" />
                   </button>
