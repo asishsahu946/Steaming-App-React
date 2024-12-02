@@ -10,7 +10,7 @@ import LoadingBar from 'react-top-loading-bar'
 import { useState } from "react"
 import Footer from "./components/Footer"
 import CategoriesList from "./pages/CategoriesList"
-// import CategoriesState from '../context/categories/CategoriesState';
+import CategoriesState from './CategoriesState';
 
 function App() {
   const [progress, setProgress] = useState(0)
