@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
-import CategoriesContext from "../CategoriesContext";
+import CategoriesContext from "../context/CategoriesContext";
 
 function Categories() {
   const navigate = useNavigate();
