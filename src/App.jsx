@@ -10,12 +10,11 @@ import LoadingBar from 'react-top-loading-bar'
 import { useState } from "react"
 import Footer from "./components/Footer"
 import CategoriesList from "./pages/CategoriesList"
-import CategoriesState from "./context/categories/CategoriesState.jsx";
+import CategoriesState from "./context/categories/CategoriesState";
 
 function App() {
   const [progress, setProgress] = useState(0)
-  return (
-    <div>
+  return ( 
       <CategoriesState>
       <LoadingBar
         height = {3}
@@ -35,7 +34,6 @@ function App() {
     </Routes>
     <Footer/>
     </CategoriesState>
-    </div>
   )
 }
 
