@@ -1,52 +1,101 @@
-import React, { useContext,  useState } from "react";
+import React, { useContext, useState } from "react";
 import categoriesContext from "../context/CategoriesContext";
 import { useLocation } from "react-router-dom";
 
 function CategoriesList() {
   const location = useLocation();
-  const [genreName, setgenreName] = useState(location.state?.genreName);
+  const [genreName, setGenreName] = useState(location.state?.genreName);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20; // 5 items per row * 4 rows
   const { genresList, genresDetails, isFetching } = useContext(categoriesContext);
 
   if (isFetching) {
     return <div>Loading...</div>;
   }
-  console.log();
-console.log(genresList);
+
+  const filteredGenresList = genresList.filter(
+    (list) => ![99, 10402, 9648, 10770, 37].includes(list.id)
+  );
+
+  const filteredMovies = genresDetails.filter(
+    (movie) => genresList.some((genre) => genre.id === movie.genre_ids[0] && genre.name === genreName)
+  );
+
+  const totalPages = Math.ceil(filteredMovies.length / itemsPerPage);
+
+  const handlePageChange = (direction) => {
+    setCurrentPage((prev) =>
+      direction === "next"
+        ? Math.min(prev + 1, totalPages)
+        : Math.max(prev - 1, 1)
+    );
+  };
+
+  const paginatedMovies = filteredMovies.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <div className="text-white">
-      {/* Geners List */}
-      <div className="flex gap-4">
-        {
-          genresList.filter((list) => ![99, 10402, 9648, 10770, 37].includes(list.id))
-          .map((item,index)=>{
-           return(
-              <button onClick={() => setgenreName(item.name)}>{item.name}</button>
-           )
-          })
-        }
+      {/* Genres List */}
+      <div className="flex gap-4 mb-4">
+        {filteredGenresList.map((item, index) => (
+          <button
+            key={index}
+            className="px-4 py-2 bg-gray-700 rounded-lg"
+            onClick={() => {
+              setGenreName(item.name);
+              setCurrentPage(1); // Reset page when genre changes
+            }}
+          >
+            {item.name}
+          </button>
+        ))}
       </div>
+
       {/* Genres and Movies Card */}
-      {genresList
-        .filter((list) => ![99, 10402, 9648, 10770, 37].includes(list.id) && list.name === genreName)
-        .map((genre,index) => (
+      {filteredGenresList
+        .filter((list) => list.name === genreName)
+        .map((genre, index) => (
           <div key={index}>
             <h2 className="text-lg font-bold mb-2">{genre.name}</h2>
-            <div className="grid grid-cols-5">
-              {genresDetails
-                .filter((movie) => movie.genre_ids.includes(genre.id))
-                .map((movie, index2) => (
-                  <div key={index2} className="">
-                    <img
-                      className="rounded-lg"
-                      src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-                      alt={movie.title || "Movie"}
-                    />
-                    <h1>{movie.title}</h1>
-                  </div>
-                ))}
+            <div className="grid grid-cols-5 gap-4">
+              {paginatedMovies.map((movie, index2) => (
+                <div key={index2} className="p-2 bg-gray-800 rounded-lg">
+                  <img
+                    className="rounded-lg"
+                    src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                    alt={movie.title || "Movie"}
+                  />
+                  <h1 className="mt-2 text-sm font-bold">{movie.title}</h1>
+                  <h1 className="text-xs text-gray-400">{movie.vote_average}</h1>
+                </div>
+              ))}
             </div>
           </div>
         ))}
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-4 gap-4">
+          <button
+            className="px-4 py-2 bg-gray-700 rounded-lg"
+            disabled={currentPage === 1}
+            onClick={() => handlePageChange("prev")}
+          >
+            Previous
+          </button>
+          <span className="px-4 py-2">{`Page ${currentPage} of ${totalPages}`}</span>
+          <button
+            className="px-4 py-2 bg-gray-700 rounded-lg"
+            disabled={currentPage === totalPages}
+            onClick={() => handlePageChange("next")}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }
