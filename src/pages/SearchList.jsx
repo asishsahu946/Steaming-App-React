@@ -32,12 +32,12 @@ const options = {
         {
             movieList.map((item)=> {
                 return(
-                    <Link to={`/searchlist/moviedetails/${item.id}`  } >
+                    <Link to={`/${item.id}`  } >
                     <div>
                         {
                             item.title
                         }
-                        <img src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`} alt="" />
+                        <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" />
                     </div>
         </Link>
                 )

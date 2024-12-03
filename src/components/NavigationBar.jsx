@@ -58,7 +58,7 @@ function NavigationBar() {
           Home
         </NavLink>
         <NavLink
-          to="/movie&shows"
+          to="/movies"
           className={({ isActive }) =>
             `py-2 px-3 rounded-lg text-center ${
               isActive ? "font-semibold bg-black3 text-white" : "text-gray4"

@@ -1,9 +1,10 @@
 import React from 'react'
 
-function MovieAndShows() {
+function Movies() {
+ 
   return (
     <div>MovieAndShows</div>
   )
 }
 
-export default MovieAndShows
+export default Movies

@@ -86,7 +86,7 @@ function HeroSection() {
           create your own watchlists, so you can easily find the content you
           want to watch.
         </p>
-        <button onClick={() => navigate('/movie&shows') } className="mt-10 bg-red1 px-2 sm-max:px1 py-3 xl-max:py-2 sm-max:py-1 sm-max:text-sm flex items-center rounded-xl">
+        <button onClick={() => navigate('/movies') } className="mt-10 bg-red1 px-2 sm-max:px1 py-3 xl-max:py-2 sm-max:py-1 sm-max:text-sm flex items-center rounded-xl">
           <img className="inline sm-max:w-6" src={assets.playButton} alt="" />{" "}
           Explore Now
         </button>

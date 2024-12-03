@@ -1,8 +1,6 @@
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
-import MovieAndShows from "./pages/MovieAndShows";
-import OpenMovie from "./pages/OpenMovie";
-import OpenShow from "./pages/OpenShow";
+import Movies from "./pages/Movies";
 import Support from "./pages/Support";
 import NavigationBar from "./components/NavigationBar";
 import LoadingBar from "react-top-loading-bar";
@@ -27,12 +25,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home setProgress={setProgress} />} />
         <Route path="/categoriesList" element={<CategoriesList />} />
-        <Route path="/categoriesList/moviedetails/:id" element={<MovieDetails />} />
         <Route path="/searchlist" element={<SearchList />} />
-        <Route path="/searchlist/moviedetails/:id" element={<MovieDetails />} />
-        <Route path="/movie&shows" element={<MovieAndShows />} />
-        <Route path="/openmovie" element={<OpenMovie />} />
-        <Route path="/openshow" element={<OpenShow />} />
+        <Route path=":id" element={<MovieDetails />} />
+        <Route path="/movies" element={<Movies />} />
         <Route path="/support" element={<Support />} />
       </Routes>
       <Footer />

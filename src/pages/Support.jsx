@@ -1,8 +1,13 @@
 import React from 'react'
+import ContactForm from '../components/ContactForm'
+import Faq from '../components/Faq'
 
 function Support() {
   return (
-    <div>Support</div>
+    <div>
+      <ContactForm/>
+      <Faq/>
+    </div>
   )
 }
 
