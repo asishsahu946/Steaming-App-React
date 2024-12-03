@@ -30,7 +30,7 @@ function App() {
       <Route path="/movie&shows" element={<MovieAndShows/>} />
       <Route path="/openmovie" element={<OpenMovie/>} />
       <Route path="/openshow" element={<OpenShow/>} />
-      <Route path="/support" element={<Support/>} />
+      <Route path="/support" element={<Support/>} /> 
       <Route path="/upgradesubscription" element={<UpgradeSubscription/>} />
     </Routes>
     <Footer/>

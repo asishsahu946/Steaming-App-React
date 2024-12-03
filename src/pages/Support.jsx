@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import ContactForm from '../components/ContactForm';
 
 function Support() {
   return (
-    <div>Support</div>
-  )
+    <div style={{ padding: '20px' }}>
+   
+      <ContactForm />
+    </div>
+  );
 }
 
-export default Support
+export default Support;
