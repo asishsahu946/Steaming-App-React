@@ -11,13 +11,7 @@ function NavigationBar() {
   const handleSubmit = (e) => {
     e.preventDefault()
     setSearch(e.target[0].value)
-    if (location.pathname === "/searchlist") {
-      window.location.reload();
-      navigate("/searchlist", { state: { search } })
-    } else {
-      navigate("/searchlist", { state: { search } });
-      setSearch("")
-    }
+    navigate("/searchlist", { state: { search } })
   }
   const changeSerch = (e) => setSearch(e.target.value)
   
