@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import categoriesContext from "../context/CategoriesContext";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function CategoriesList() {
   const location = useLocation();
@@ -8,6 +8,9 @@ function CategoriesList() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20; // 5 items per row * 4 rows
   const { genresList, genresDetails, isFetching } = useContext(categoriesContext);
+  const navigate = useNavigate()
+
+  console.log(genresDetails);
 
   if (isFetching) {
     return <div>Loading...</div>;
@@ -24,6 +27,7 @@ function CategoriesList() {
   const totalPages = Math.ceil(filteredMovies.length / itemsPerPage);
 
   const handlePageChange = (direction) => {
+    scrollTo(0,0)
     setCurrentPage((prev) =>
       direction === "next"
         ? Math.min(prev + 1, totalPages)
@@ -62,7 +66,8 @@ function CategoriesList() {
             <h2 className="text-lg font-bold mb-2">{genre.name}</h2>
             <div className="grid grid-cols-5 gap-4">
               {paginatedMovies.map((movie, index2) => (
-                <div key={index2} className="p-2 bg-gray-800 rounded-lg">
+                <Link to={`/categoriesList/moviedetails/${movie.id}`} >
+                <div key={index2}  className="p-2 bg-red-800 rounded-lg"> 
                   <img
                     className="rounded-lg"
                     src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
@@ -71,6 +76,7 @@ function CategoriesList() {
                   <h1 className="mt-2 text-sm font-bold">{movie.title}</h1>
                   <h1 className="text-xs text-gray-400">{movie.vote_average}</h1>
                 </div>
+                </Link>
               ))}
             </div>
           </div>

@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 function NavigationBar() {
-  const [toggleSearch, setToggleSearch] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Add scroll event listener
@@ -58,7 +57,7 @@ function NavigationBar() {
             }`
           }
         >
-          Movies & Shows
+          Movies
         </NavLink>
         <NavLink
           to="/support"
@@ -70,28 +69,15 @@ function NavigationBar() {
         >
           Support
         </NavLink>
-        <NavLink
-          to="/upgradesubscription"
-          className={({ isActive }) =>
-            `py-2 px-3 rounded-lg text-center ${
-              isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
-            }`
-          }
-        >
-          Subscriptions
-        </NavLink>
+       
       </div>
-
       <div className="flex items-center">
         <FaSearch
-          onClick={() => setToggleSearch(!toggleSearch)}
           className="inline w-12 z-10 relative sm-max:hidden"
         />
         <input
           type="text"
-          className={`rounded-2xl bg-black6 py-2 pl-12 sm-max:hidden text-white relative -left-12 z-0 ${
-            toggleSearch ? "hidden" : ""
-          }`}
+          className={'rounded-2xl bg-black6 py-2 pl-12 sm-max:hidden text-white relative -left-12 z-0'}
         />
         <img
           className="w-7 sm-max:w-5 lg:hidden"
