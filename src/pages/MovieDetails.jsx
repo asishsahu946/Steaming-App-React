@@ -11,8 +11,7 @@ function MovieDetails() {
           accept: 'application/json',
           Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYzFjYzVlMWNkZTgzM2RmNzYzMDhlYjA5YjA1MjMyYyIsIm5iZiI6MTcyOTcwNzEwOS4xNDUsInN1YiI6IjY3MTkzYzY1NWQwZGU4OTA0MmQ4Y2NjMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.S3iT07Rh4-YwsGl_gim7COtEGHfG2NAK8srhHhzTJDg'
         }
-      };
-      
+      };    
 
       useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
@@ -27,7 +26,10 @@ function MovieDetails() {
       }, [id]);
  
   return (
-    <div className='text-white'>{movie.title}</div>
+    <div className='text-white'>
+      <h1>{movie.title}</h1>
+      <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt="" />
+    </div>
   )
 }
 

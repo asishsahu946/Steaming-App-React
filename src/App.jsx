@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import CategoriesList from "./pages/CategoriesList";
 import CategoriesState from "./context/CategoriesState";
 import MovieDetails from "./pages/MovieDetails";
+import SearchList from "./pages/SearchList";
 
 function App() {
   const [progress, setProgress] = useState(0);
@@ -27,6 +28,8 @@ function App() {
         <Route path="/" element={<Home setProgress={setProgress} />} />
         <Route path="/categoriesList" element={<CategoriesList />} />
         <Route path="/categoriesList/moviedetails/:id" element={<MovieDetails />} />
+        <Route path="/searchlist" element={<SearchList />} />
+        <Route path="/searchlist/moviedetails/:id" element={<MovieDetails />} />
         <Route path="/movie&shows" element={<MovieAndShows />} />
         <Route path="/openmovie" element={<OpenMovie />} />
         <Route path="/openshow" element={<OpenShow />} />
