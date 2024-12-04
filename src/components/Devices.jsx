@@ -14,7 +14,7 @@ function Devices() {
       {
         devicesDetails.map((item,index) =>{
           return (
-            <div key={index} className='border border-black5 px-14 xl-max:px-6 py-9 rounded-xl device-gradiant' >
+            <div key={index} className='border border-black5 px-14 xl-max:px-6 py-9 rounded-xl device-gradiant   transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:rotate-1' >
               <div className='flex items-center'>
               <img className='xl-max:w-14 sm-max:w-10' src={item.logo} alt="" />
               <h1 className='pl-6 xl-max:pl-1 sm-max:pl-3 text-lg xl-max:text-base sm-max:text-sm font-semibold'>{item.device}</h1>

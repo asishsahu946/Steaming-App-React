@@ -1,39 +1,37 @@
-import React, { useEffect, useState, useContext} from "react";
+import React, { useContext } from "react";
 import { assets } from "../assets/assets";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
-import categoriesContext from '../Context/categories/CategoriesContext'
+import CategoriesContext from "../context/CategoriesContext";
 
- function Categories() {
-  const navigate = useNavigate()
+function Categories() {
+  const navigate = useNavigate();
 
   const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-    slidesToSlide: 5
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 5,
-    slidesToSlide: 5
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
-};
-const { genresList, genresDetails} = useContext(categoriesContext);
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+      slidesToSlide: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5,
+      slidesToSlide: 5,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+  const { genresList, genresDetails } = useContext(CategoriesContext);
+
   return (
-
-
-    <div className="bg-black2 text-white pb-11 px-20 xl-max:px-10 sm-max:px-3 " >
+    <div className="bg-black2 text-white pb-11 px-20 xl-max:px-10 sm-max:px-3 ">
       <div>
         <div>
           <h1 className="font-semibold text-4xl xl-max:text-3xl sm-max:text-xl">
@@ -44,27 +42,35 @@ const { genresList, genresDetails} = useContext(categoriesContext);
             make you think, or a documentary to learn something new
           </p>
         </div>
-        <Carousel responsive={responsive}  removeArrowOnDeviceType={["tablet", "mobile"]} className="mt-12">
+        <Carousel
+          responsive={responsive}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          className="mt-12 py-4"
+        >
           {/* Genres and Movies Card */}
           {genresList
             .filter((list) => ![99, 10402, 9648, 10770, 37].includes(list.id))
             .map((genre, index) => (
               <div
-                className="bg-black3 border border-black5 px-3 py-4 rounded-xl mx-2"
+                className="bg-black3 border border-black5 px-3 py-4 rounded-xl mx-2 hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out "
                 key={index}
-                onClick={()=> navigate('/categoriesList') }
+                onClick={() =>
+                  navigate("/categoriesList", {
+                    state: { genreName: genre.name },
+                  })
+                }
               >
                 <div className="grid grid-cols-2 gap-2">
                   {genresDetails
                     .filter((movie) => movie.genre_ids.includes(genre.id))
                     .slice(0, 4)
                     .map((movie, index) => (
-                      <div key={index} className="">
-                          <img
-                            className="rounded-lg"
-                            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} 
-                            alt=""
-                          />
+                      <div key={index}>
+                        <img
+                          className="rounded-lg"
+                          src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                          alt=""
+                        />
                       </div>
                     ))}
                 </div>

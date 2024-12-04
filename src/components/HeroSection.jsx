@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { assets } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
   const [movieData, setMovieData] = useState([]);
   const [isFetching, setIsFetching] = useState(true); // To track if data is being fetched
+  const navigate = useNavigate()
 
   const options = {
     method: "GET",
@@ -84,10 +86,14 @@ function HeroSection() {
           create your own watchlists, so you can easily find the content you
           want to watch.
         </p>
-        <button className="mt-10 bg-red1 px-2 sm-max:px1 py-3 xl-max:py-2 sm-max:py-1 sm-max:text-sm flex items-center rounded-xl">
+        <button
+          onClick={() => navigate('/movies')}
+          className="mt-10 bg-red1 hover:bg-red4 px-2 sm-max:px1 py-3 xl-max:py-2 sm-max:py-1 sm-max:text-sm flex items-center rounded-xl"
+        >
           <img className="inline sm-max:w-6" src={assets.playButton} alt="" />{" "}
-          Watching Now
+          Explore Now
         </button>
+
       </div>
     </div>
   );

@@ -6,12 +6,12 @@ import Faq from '../components/Faq'
 
 function Home({setProgress}) {
   useEffect(() =>{
-    setProgress(50)
-  })
+    setProgress(100)
+  },[])
   return (
     <div>
         <HeroSection/>
-        <Categories/>
+        <Categories setProgress={setProgress}/>
         <Devices/>
         <Faq/>
     </div>

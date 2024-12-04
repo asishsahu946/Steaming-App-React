@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { assets } from "../assets/assets";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 function NavigationBar() {
-  const [toggleSearch, setToggleSearch] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [search, setSearch] = useState('')
+  const navigate = useNavigate()
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setSearch(e.target[0].value)
+    navigate("/searchlist", { state: { search } })
+  }
+  const changeSerch = (e) => setSearch(e.target.value)
+  
   // Add scroll event listener
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +27,6 @@ function NavigationBar() {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup listener on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -43,7 +50,7 @@ function NavigationBar() {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `py-2 px-3 rounded-lg text-center ${
+            `py-2 px-3 rounded-lg text-center hover:scale-110 transition-transform  duration-300 ease-in-out${
               isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
@@ -51,48 +58,49 @@ function NavigationBar() {
           Home
         </NavLink>
         <NavLink
-          to="/movie&shows"
+          to="/movies"
           className={({ isActive }) =>
-            `py-2 px-3 rounded-lg text-center ${
+            `py-2 px-3 rounded-lg text-center hover:scale-110 transition-transform  duration-300 ease-in-out${
               isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
         >
-          Movies & Shows
+          Movies
         </NavLink>
         <NavLink
           to="/support"
           className={({ isActive }) =>
-            `py-2 px-3 rounded-lg text-center ${
+            `py-2 px-3 rounded-lg text-center hover:scale-110 transition-transform  duration-300 ease-in-out ${
               isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
         >
           Support
         </NavLink>
-        <NavLink
-          to="/upgradesubscription"
-          className={({ isActive }) =>
-            `py-2 px-3 rounded-lg text-center ${
-              isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
-            }`
-          }
-        >
-          Subscriptions
-        </NavLink>
       </div>
-
-      <div className="flex items-center">
+      {/* Search box */}
+      <div className="flex items-center ">
         <FaSearch
-          onClick={() => setToggleSearch(!toggleSearch)}
           className="inline w-12 z-10 relative sm-max:hidden"
         />
+        <div>
+          <form onSubmit={handleSubmit} className="flex items-center">
+
         <input
           type="text"
-          className={`rounded-2xl bg-black6 py-2 pl-12 sm-max:hidden text-white relative -left-12 z-0 ${
-            toggleSearch ? "hidden" : ""
-          }`}
+          value={search}
+          onChange={changeSerch}
+          className={'rounded-2xl bg-black6 py-2 pl-10 pr-11 sm-max:hidden text-white relative -left-12 z-0'}
         />
+      
+        <button 
+        type="submit"
+         className="relative -left-[85px] z-0 sm-max:hidden hover:scale-110 transition-transform  duration-300 ease-in-out">
+                    <img src={assets.rightbtn} alt="" />
+        </button>
+        
+          </form>
+        </div>
         <img
           className="w-7 sm-max:w-5 lg:hidden"
           src={assets.threeLine}
