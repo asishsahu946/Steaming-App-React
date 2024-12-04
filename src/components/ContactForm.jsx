@@ -22,10 +22,11 @@ function ContactForm() {
         </div>
 
 
-        <div className="md:w-2/3 mt-8 md:mt-0 md:ml-8">
-            <form className="bg-black1 rounded-lg p-6">
-                <div className="flex space-x-4">
-                   
+        {/* form */}
+        <div className="md:w-2/3 mt-8 md:mt-0 md:ml-8   ">
+            <form className="bg-black1 p-6 border border-black5 rounded-xl">
+                <div className="flex space-x-4 md-max:space-x-0 md-max:flex-col">
+                   {/* first Name */}
                     <div className="w-1/2">
                         <label className="block text-white mb-2" htmlFor="firstName">
                             First Name
@@ -34,11 +35,11 @@ function ContactForm() {
                             type="text"
                             id="firstName"
                             placeholder="Enter First Name"
-                            className="w-full px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500"
+                            className="w-full md-max:w- px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500 border border-black5"
                         />
                     </div>
-                    
-                    <div className="w-1/2">
+                    {/* Last Name */}
+                    <div className="w-1/2 md-max:mt-3">
                         <label className="block text-white mb-2" htmlFor="lastName">
                             Last Name
                         </label>
@@ -46,14 +47,14 @@ function ContactForm() {
                             type="text"
                             id="lastName"
                             placeholder="Enter Last Name"
-                            className="w-full px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500"
+                            className="w-full px-4 md-max:w-[100%] py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500 border border-black5"
                         />
                     </div>
                 </div>
 
                 
                 <div className="flex space-x-4 mt-4">
-                   
+                   {/* email */}
                     <div className="w-1/2">
                         <label className="block text-white mb-2" htmlFor="email">
                             Email
@@ -62,17 +63,17 @@ function ContactForm() {
                             type="email"
                             id="email"
                             placeholder="Enter your Email"
-                            className="w-full px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500"
+                            className="w-full px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500 border border-black5"
                         />
                     </div>
-                    
+                    {/* phone Number */}
                     <div className="w-1/2">
                         <label className="block text-white mb-2" htmlFor="phone">
                             Phone Number
                         </label>
                         <div className="flex items-center space-x-2">
                             <select
-                                className="px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500"
+                                className="px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500 border border-black5"
                                 defaultValue="IN"
                             >
                                 <option value="IN">🇮🇳 +91</option>
@@ -83,13 +84,13 @@ function ContactForm() {
                                 type="tel"
                                 id="phone"
                                 placeholder="Enter Phone Number"
-                                className="flex-1 px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500"
+                                className="flex px-3 w-full py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500 border border-black5 "
                             />
                         </div>
                     </div>
                 </div>
 
-                
+                {/* message */}
                 <div className="mt-4">
                     <label className="block text-white mb-2" htmlFor="message">
                         Message
@@ -98,7 +99,7 @@ function ContactForm() {
                         id="message"
                         rows="4"
                         placeholder="Enter your Message"
-                        className="w-full px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500"
+                        className="w-full px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500 border border-black5"
                     ></textarea>
                 </div>
 
