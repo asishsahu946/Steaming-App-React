@@ -50,7 +50,7 @@ function NavigationBar() {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `py-2 px-3 rounded-lg text-center ${
+            `py-2 px-3 rounded-lg text-center hover:scale-110 transition-transform  duration-300 ease-in-out${
               isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
@@ -60,7 +60,7 @@ function NavigationBar() {
         <NavLink
           to="/movies"
           className={({ isActive }) =>
-            `py-2 px-3 rounded-lg text-center ${
+            `py-2 px-3 rounded-lg text-center hover:scale-110 transition-transform  duration-300 ease-in-out${
               isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
@@ -70,7 +70,7 @@ function NavigationBar() {
         <NavLink
           to="/support"
           className={({ isActive }) =>
-            `py-2 px-3 rounded-lg text-center ${
+            `py-2 px-3 rounded-lg text-center hover:scale-110 transition-transform  duration-300 ease-in-out ${
               isActive ? "font-semibold bg-black3 text-white" : "text-gray4"
             }`
           }
@@ -95,7 +95,7 @@ function NavigationBar() {
       
         <button 
         type="submit"
-         className="relative -left-[85px] z-0 sm-max:hidden">
+         className="relative -left-[85px] z-0 sm-max:hidden hover:scale-110 transition-transform  duration-300 ease-in-out">
                     <img src={assets.rightbtn} alt="" />
         </button>
         

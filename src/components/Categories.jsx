@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { assets } from "../assets/assets";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -10,7 +10,6 @@ function Categories() {
 
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
       slidesToSlide: 5,
@@ -30,6 +29,7 @@ function Categories() {
     },
   };
   const { genresList, genresDetails } = useContext(CategoriesContext);
+
   return (
     <div className="bg-black2 text-white pb-11 px-20 xl-max:px-10 sm-max:px-3 ">
       <div>
@@ -45,23 +45,27 @@ function Categories() {
         <Carousel
           responsive={responsive}
           removeArrowOnDeviceType={["tablet", "mobile"]}
-          className="mt-12"
+          className="mt-12 py-4"
         >
           {/* Genres and Movies Card */}
           {genresList
             .filter((list) => ![99, 10402, 9648, 10770, 37].includes(list.id))
             .map((genre, index) => (
               <div
-                className="bg-black3 border border-black5 px-3 py-4 rounded-xl mx-2"
+                className="bg-black3 border border-black5 px-3 py-4 rounded-xl mx-2 hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out "
                 key={index}
-                onClick={() => navigate("/categoriesList", { state: { genreName: genre.name } })}
+                onClick={() =>
+                  navigate("/categoriesList", {
+                    state: { genreName: genre.name },
+                  })
+                }
               >
                 <div className="grid grid-cols-2 gap-2">
                   {genresDetails
                     .filter((movie) => movie.genre_ids.includes(genre.id))
                     .slice(0, 4)
                     .map((movie, index) => (
-                      <div key={index} className="">
+                      <div key={index}>
                         <img
                           className="rounded-lg"
                           src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
@@ -71,7 +75,7 @@ function Categories() {
                     ))}
                 </div>
                 <div className="flex justify-between px-1 mt-2">
-                  <h2>{genre.name}</h2> 
+                  <h2>{genre.name}</h2>
                   <button>
                     <img src={assets.rightbtn} alt="" />
                   </button>
