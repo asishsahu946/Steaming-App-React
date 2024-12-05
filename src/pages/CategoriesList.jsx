@@ -64,17 +64,21 @@ function CategoriesList() {
         .map((genre, index) => (
           <div key={index}>
             <h2 className="text-lg font-bold mb-2">{genre.name}</h2>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-5 gap-15">
               {paginatedMovies.map((movie, index2) => (
                 <Link to={`/${movie.id}`} >
-                <div key={index2}  className="p-2 bg-red-800 rounded-lg"> 
+                <div className="w-96">
+                <div>
                   <img
                     className="rounded-lg"
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt={movie.title || "Movie"}
                   />
-                  <h1 className="mt-2 text-sm font-bold">{movie.title}</h1>
-                </div>
+                  </div>
+                  <div>
+                  {movie.title}
+                   </div>
+                  </div>
                 </Link>
               ))}
             </div>
@@ -106,3 +110,6 @@ function CategoriesList() {
 }
 
 export default CategoriesList;
+
+
+

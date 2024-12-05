@@ -42,6 +42,7 @@ function Categories() {
             make you think, or a documentary to learn something new
           </p>
         </div>
+
         <Carousel
           responsive={responsive}
           removeArrowOnDeviceType={["tablet", "mobile"]}

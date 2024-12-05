@@ -42,7 +42,7 @@ function MovieDetails() {
     <div className='text-white'>
       {/* Top section */}
       <div>   
-      <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt="" />
+      <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt="" /> 
       <h1>{movie.title}</h1>
       <p>{movie.overview}</p>
       </div>
@@ -55,7 +55,7 @@ function MovieDetails() {
         {
           cast.map((item,index) => {
             return(
-              <div className='w-20'>
+              <div className='w-20' key={index}>
                 <img src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`} alt="" />
               </div>
             )
