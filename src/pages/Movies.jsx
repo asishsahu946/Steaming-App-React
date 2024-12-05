@@ -3,7 +3,9 @@ import React from 'react'
 function Movies() {
  
   return (
-    <div>MovieAndShows</div>
+    <div>
+      Movies
+    </div>
   )
 }
 
