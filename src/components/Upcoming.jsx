@@ -43,7 +43,6 @@ const options = {
     .then(res => res.json())
     .then(res => {
       setData(res.results)
-      console.log(res.results);
       setIsFetching(false); // Mark fetching as complete
     })
     .catch(err => console.error(err))
@@ -51,25 +50,30 @@ const options = {
   }, [isFetching]);
 
   return (
-    <div>
-      <div>Upcoming</div>
+    <div className='text-white px-20 xl-max:px-10 sm-max:px-3 '>
+      <div className='border border-black5 rounded-2xl'>
+
+      <h2 className="inline font-bold text-xl md-max:text-lg mb-2 relative bottom-4 left-9 rounded-lg px-3 py-2 bg-red1">Upcoming</h2>
       <Carousel
           responsive={responsive}
           removeArrowOnDeviceType={["tablet", "mobile"]}
+           className="py-3"
         >
         {
           data.map((item,index) => {
             return(
-              <Link to={`/${item.id}`} >
-              <div>
-                <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" />
-                <h1>{item.title}</h1>
+              <Link to={`/${item.id}`} key={index}  >
+              <div className='border border-black5  bg-black3 rounded-2xl mx-4 p-5'>
+                <img className='w-[250px] mx-auto rounded-2xl' src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" />
+                <h1 className='text-center font-bold mt-3'>{item.title}</h1>
+                <h1 className='text-center text-gray1 bg-black2 py-1 w-fit mx-auto px-3 mt-1 border border-black5 rounded-3xl'>Realeased at {item.release_date}</h1>
               </div>
               </Link>
             )
           })
         }
       </Carousel>
+      </div>
     </div>
   )
 }

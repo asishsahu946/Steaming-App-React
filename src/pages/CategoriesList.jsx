@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import categoriesContext from "../context/CategoriesContext";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function CategoriesList() {
   const location = useLocation();
@@ -8,9 +8,6 @@ function CategoriesList() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20; // 5 items per row * 4 rows
   const { genresList, genresDetails, isFetching } = useContext(categoriesContext);
-  const navigate = useNavigate()
-
-  console.log(genresDetails);
 
   if (isFetching) {
     return <div>Loading...</div>;
@@ -41,13 +38,13 @@ function CategoriesList() {
   );
 
   return (
-    <div className="text-white">
+    <div className="text-white px-20 xl-max:px-10 sm-max:px-3 mb-9">
       {/* Genres List */}
-      <div className="flex gap-4 mb-4">
+      <div className="flex gap-4 items-center justify-center text-nowrap">
         {filteredGenresList.map((item, index) => (
           <button
             key={index}
-            className="px-4 py-2 bg-gray-700 rounded-lg"
+            className="px-3 py-3 bg-black3 rounded-lg font-semibold border border-black5"
             onClick={() => {
               setGenreName(item.name);
               setCurrentPage(1); // Reset page when genre changes
@@ -58,24 +55,24 @@ function CategoriesList() {
         ))}
       </div>
 
+<div className=" border border-black5 rounded-xl mt-10">
       {/* Genres and Movies Card */}
       {filteredGenresList
         .filter((list) => list.name === genreName)
         .map((genre, index) => (
-          <div key={index}>
-            <h2 className="text-lg font-bold mb-2">{genre.name}</h2>
-            <div className="grid grid-cols-5 gap-15">
+          <div key={index} className="p-4">
+            <h2 className="inline font-bold text-xl md-max:text-lg mb-2 relative bottom-8 left-3 rounded-lg px-3 py-2 bg-red1">{genre.name}</h2>
+            <div className="grid grid-cols-5 xl-max:grid-cols-4 md-max:grid-cols-2 sm-max:grid-cols-1 gap-7">
               {paginatedMovies.map((movie, index2) => (
-                <Link to={`/${movie.id}`} >
-                <div className="w-96">
-                <div>
+                <Link to={`/${movie.id}`}  className=" bg-black3 border border-black5 p-3 rounded-xl">
+                <div className="">
                   <img
-                    className="rounded-lg"
+                    className="rounded-lg w-[250px] mx-auto"
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt={movie.title || "Movie"}
                   />
-                  </div>
-                  <div>
+                  
+                  <div className="text-center mt-2 font-bold">
                   {movie.title}
                    </div>
                   </div>
@@ -84,12 +81,13 @@ function CategoriesList() {
             </div>
           </div>
         ))}
+</div>
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex justify-center mt-4 gap-4">
+        <div className="flex justify-center mt-4 gap-4 ">
           <button
-            className="px-4 py-2 bg-gray-700 rounded-lg"
+            className="px-4 py-2 bg-black3 rounded-lg border border-black5"
             disabled={currentPage === 1}
             onClick={() => handlePageChange("prev")}
           >
@@ -97,7 +95,7 @@ function CategoriesList() {
           </button>
           <span className="px-4 py-2">{`Page ${currentPage} of ${totalPages}`}</span>
           <button
-            className="px-4 py-2 bg-gray-700 rounded-lg"
+            className="px-4 py-2 bg-black3 rounded-lg border border-black5"
             disabled={currentPage === totalPages}
             onClick={() => handlePageChange("next")}
           >

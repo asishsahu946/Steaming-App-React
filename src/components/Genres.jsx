@@ -1,43 +1,43 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react'
 import { assets } from "../assets/assets";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
 import CategoriesContext from "../context/CategoriesContext";
 
-function Categories() {
-  const navigate = useNavigate();
+function Genres() {
+    const navigate = useNavigate();
 
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-      slidesToSlide: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 5,
-      slidesToSlide: 5,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
-  const { genresList, genresDetails } = useContext(CategoriesContext);
-
+    const responsive = {
+      superLargeDesktop: {
+        breakpoint: { max: 4000, min: 3000 },
+        items: 5,
+        slidesToSlide: 5,
+      },
+      desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 5,
+        slidesToSlide: 5,
+      },
+      tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+      },
+      mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+      },
+    };
+    const { genresList, genresDetails } = useContext(CategoriesContext);
   return (
-    <div className="text-white pb-11 px-20 xl-max:px-10 sm-max:px-3 ">
-
+    <div  className='text-white px-20 xl-max:px-10 sm-max:px-3 mt-16 mb-16'>
+        <div className='border border-black5 rounded-2xl px-2'>
+        <h2 className="inline font-bold text-xl md-max:text-lg mb-2 relative bottom-4 left-9 rounded-lg px-3 py-2 bg-red1">Genres</h2>
         <Carousel
           responsive={responsive}
           removeArrowOnDeviceType={["tablet", "mobile"]}
           infinite={true}
-          className="mt-12 py-4"
+          className=" py-4"
         >
           {/* Genres and Movies Card */}
           {genresList
@@ -75,8 +75,9 @@ function Categories() {
               </div>
             ))}
         </Carousel>
+        </div>
     </div>
-  );
+  )
 }
 
-export default Categories;
+export default Genres

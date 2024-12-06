@@ -1,14 +1,14 @@
 import React from 'react'
-import Categories from '../components/Categories'
 import Upcoming from '../components/Upcoming'
 import Popular from '../components/Popular'
 import TopRated from '../components/TopRated'
+import Genres from '../components/Genres'
 
 function Movies() {
  
   return (
     <div className='text-white'>
-      <Categories/>
+      <Genres/>
       <Upcoming/>
       <Popular/>
       <TopRated/>
