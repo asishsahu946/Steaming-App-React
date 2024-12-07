@@ -1,41 +1,41 @@
 export const faq = [
     {
-        number: '1',
+        number: '01',
         heading: 'What is StreamVibe?',
         paragraph: 'StreamVibe is a streaming service that allows you to watch movies and shows on demand.'
     },
     {
-        number: '2',
+        number: '02',
         heading: 'How much does StreamVibe cost?',
         paragraph: 'StreamVibe is a streaming service that allows you to watch movies and shows on demand.'
     },
     {
-        number: '3',
+        number: '03',
         heading: 'What content is available on StreamVibe?',
         paragraph: 'StreamVibe is a streaming service that allows you to watch movies and shows on demand.'
     },
     {
-        number: '4',
+        number: '04',
         heading: 'How can I watch StreamVibe?',
         paragraph: 'StreamVibe is a streaming service that allows you to watch movies and shows on demand.'
     },
     {
-        number: '5',
+        number: '05',
         heading: 'How do I sign up for StreamVibe?',
         paragraph: 'StreamVibe is a streaming service that allows you to watch movies and shows on demand.'
     },
     {
-        number: '6',
+        number: '06',
         heading: 'What is the StreamVibe free trial?',
         paragraph: 'StreamVibe is a streaming service that allows you to watch movies and shows on demand.'
     },
     {
-        number: '7',
+        number: '07',
         heading: 'How do I contact StreamVibe customer support?',
         paragraph: 'StreamVibe is a streaming service that allows you to watch movies and shows on demand.'
     },
     {
-        number: '8',
+        number: '08',
         heading: 'What are the StreamVibe payment methods?',
         paragraph: 'StreamVibe is a streaming service that allows you to watch movies and shows on demand.'
     },

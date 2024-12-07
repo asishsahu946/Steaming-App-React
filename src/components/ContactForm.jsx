@@ -2,7 +2,7 @@ import React from 'react'
 
 function ContactForm() {
   return (
-    <div className=" min-h-screen flex items-center justify-center ">
+    <div className=" flex items-center justify-center ">
     <div className="max-w-8xl w-full rounded-lg p-10 md:flex">
 
         <div className="md:w-1/3">
@@ -27,7 +27,7 @@ function ContactForm() {
             <form className="bg-black1 p-6 border border-black5 rounded-xl">
                 <div className="flex space-x-4 md-max:space-x-0 md-max:flex-col">
                    {/* first Name */}
-                    <div className="w-1/2">
+                    <div className="w-1/2 md-max:w-full">
                         <label className="block text-white mb-2" htmlFor="firstName">
                             First Name
                         </label>
@@ -35,11 +35,11 @@ function ContactForm() {
                             type="text"
                             id="firstName"
                             placeholder="Enter First Name"
-                            className="w-full md-max:w- px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500 border border-black5"
+                            className="w-full px-4 py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500 border border-black5"
                         />
                     </div>
                     {/* Last Name */}
-                    <div className="w-1/2 md-max:mt-3">
+                    <div className="w-1/2 md-max:w-full md-max:mt">
                         <label className="block text-white mb-2" htmlFor="lastName">
                             Last Name
                         </label>
@@ -53,9 +53,9 @@ function ContactForm() {
                 </div>
 
                 
-                <div className="flex space-x-4 mt-4">
+                <div className="flex space-x-4 md-max:space-x-0 md-max:flex-col">
                    {/* email */}
-                    <div className="w-1/2">
+                    <div className="w-1/2 md-max:w-full">
                         <label className="block text-white mb-2" htmlFor="email">
                             Email
                         </label>
@@ -67,7 +67,7 @@ function ContactForm() {
                         />
                     </div>
                     {/* phone Number */}
-                    <div className="w-1/2">
+                    <div className="w-1/2 md-max:w-full">
                         <label className="block text-white mb-2" htmlFor="phone">
                             Phone Number
                         </label>
@@ -87,7 +87,7 @@ function ContactForm() {
                                 className="flex px-3 w-full py-2 rounded bg-black2 text-gray-200 focus:outline-none focus:ring focus:ring-red-500 border border-black5 "
                             />
                         </div>
-                    </div>
+                    </div>//
                 </div>
 
                 {/* message */}
@@ -104,7 +104,7 @@ function ContactForm() {
                 </div>
 
              
-                <div className="mt-4 flex items-center justify-between p-8">
+                <div className="mt-4 md-max:mt-1 flex md-max:flex-col items-center justify-between p-8">
                    
                     <div className="flex items-center">
                         <input
@@ -119,7 +119,7 @@ function ContactForm() {
                    
                     <button
                         type="submit"
-                        className="bg-red1 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:ring focus:ring-red-500"
+                        className="bg-red1 hover:bg-red-700 text-white py-2 px-4 md-max:w-full rounded focus:outline-none focus:ring focus:ring-red-500 mt-6"
                     >
                         Send Message
                     </button>

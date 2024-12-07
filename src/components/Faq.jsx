@@ -53,7 +53,7 @@ function Faq() {
       styles: {
         base: {
           container: {
-            display: "block",
+            display: "",
             position: "relative",
             width: "w-full",
           },
@@ -73,7 +73,7 @@ function Faq() {
               fontWeight: "font-semibold",
               lineHeight: "leading-snug",
               userSelect: "select-none",
-              hover: "hover:text-blue-gray-900",
+              hover: "",
               transition: "transition-colors",
             },
             active: { color: "text-blue-gray-900" },
@@ -83,8 +83,9 @@ function Faq() {
           },
           body: {
             display: "block",
-            width: "w-fit",
-            py: "py-4",
+            width: "",
+            py: "pb-2",
+            mx: "mx-20",
             color: "text-gray-700",
             fontSmoothing: "antialiased",
             fontFamily: "font-sans",
@@ -94,7 +95,7 @@ function Faq() {
           },
           disabled: {
             pointerEvents: "pointer-events-none",
-            opacity: "opacity-50",
+            opacity: "opacity-10",
           },
         },
       },
@@ -102,18 +103,18 @@ function Faq() {
   };
 
   return (
-    <div className="text-white px-20 xl-max:px-10 sm-max:px-3 pb-10">
+    <div className="text-white px-20 xl-max:px-10 sm-max:px-3 pb-16 ">
       <div className="pt-24">
-        <h1 className="font-semibold text-4xl xl-max:text-3xl sm-max:text-xl">
+        <h1 className="font-semibold text-4xl xl-max:text-3xl sm-max:text-2xl">
           Frequently Asked Questions
         </h1>
-        <p className="mt-5 text-lg xl-max:text-base sm-max:text-xs text-gray1">
+        <p className="mt-5 text-lg xl-max:text-base sm-max:text-sm text-gray1">
           Got questions? We've got answers! Check out our FAQ section to find
           answers to the most common questions about StreamVibe.
         </p>
       </div>
 
-      <div className="border-4 border-red-900 grid grid-cols-2 md-max:grid-cols-1 md-max:grid-rows-1">
+      <div className="mt-8 grid grid-cols-2 gap-6 md-max:grid-cols-1 md-max:grid-rows-1">
         {faq.map((item, index) => {
           return (
             <ThemeProvider value={theme} key={index}>
@@ -126,20 +127,27 @@ function Faq() {
                     onClick={() => handleOpen(index)}
                     className="text-white"
                   >
-                    <div>
-                      <div className="border inline text-center">
+                    <div className="flex items-center gap-3 mx-5">
+                      {/* number */}
+                      <div className="border border-black5 bg-black4 p-2 inline text-center rounded-lg">
                         {item.number}
                       </div>
+                      {/* Heading */}
+                      <div>
                       {item.heading}
+                      </div>
                     </div>
                   </AccordionHeader>
+                  {/* paragraph */}
                   <AccordionBody
                     className="text-gray1"
                   >
                     {item.paragraph}
                   </AccordionBody>
                 </Accordion>
+              <hr className="w-[86%] mx-2 hr-gradiant" />                
               </div>
+             
             </ThemeProvider>
           );
         })}

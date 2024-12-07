@@ -34,13 +34,13 @@ function NavigationBar() {
 
   return (
     <div
-      className={`flex items-center justify-between px-8 py-4 sm-max:px-2 sticky top-0 z-[99999] transition-all duration-300 ${
+      className={`flex items-center justify-between md-max:bg-black px-8 py-4 sticky top-0 z-[99999] transition-all duration-300 ${
         isScrolled ? "bg-black text-white" : "bg-transparent text-white"
       }`}
     >
       <div>
         <img
-          className="w-full laptop:w-[160px] sm-max:w-[100px]"
+          className="w-full laptop:w-[160px] sm-max:w-[140px]"
           src={assets.desktopLogo}
           alt="Logo"
         />
@@ -102,7 +102,7 @@ function NavigationBar() {
           </form>
         </div>
         <img
-          className="w-7 sm-max:w-5 lg:hidden"
+          className="w-7 sm-max:w-6 lg:hidden"
           src={assets.threeLine}
           alt="Menu Icon"
         />

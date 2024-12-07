@@ -45,12 +45,12 @@ function HeroSection() {
 
   return (
     <div className="bg-black2 relative z-0">
-      <div className="grid grid-cols-8 gap-3 sm-max:gap-0 relative bottom-[92px] -z-10 pt-1 bg-black2 gradient">
+      <div className="grid grid-cols-8 md-max:grid-cols-5 gap-3 md-max:gap-0 relative bottom-[92px] -z-10 pt-1 bg-black2 gradient">
         {movieData.map((data, index) => {
           return (
             <div key={index}>
               <img
-                className="rounded-lg sm-max:rounded-none"
+                className="rounded-lg md-max:rounded-none"
                 src={`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`}
                 alt=""
               />
@@ -58,17 +58,17 @@ function HeroSection() {
           );
         })}
         <img
-          className="absolute top-0 w-full"
+          className="absolute top-0 w-full md-max:hidden"
           src={assets.topGradiant}
           alt=""
         />
         <img
-          className="absolute inset-0 mx-auto my-auto top-1/2 transform -translate-y-1/2 w-[250px] xl-max:w-[150px] md-max:w-[50px]"
+          className="absolute inset-0 mx-auto my-auto top-1/2 transform -translate-y-1/2 w-[250px] xl-max:w-[150px] md-max:w-[50px] md-max:hidden"
           src={assets.abstract}
           alt=""
         />
         <img
-          className="absolute top-[120px] w-full"
+          className="absolute top-[120px] w-full md-max:hidden"
           src={assets.bottomGradiant}
           alt=""
         />
@@ -78,7 +78,7 @@ function HeroSection() {
         <h1 className="relative bottom-5 font-semibold text-5xl xl-max:text-4xl sm-max:text-3xl">
           The Best Streaming Experience
         </h1>
-        <p className="px-32 xl-max:px-16 sm-max:px-2 mt-3 text-lg xl-max:text-base sm-max:text-xs text-gray1">
+        <p className="px-32 xl-max:px-16 md-max:px-6 mt-3 text-lg xl-max:text-base md-max:text-sm text-gray1">
           StreamVibe is the best streaming experience for watching your favorite
           movies and shows on demand, anytime, anywhere. With StreamVibe, you
           can enjoy a wide variety of content, including the latest
