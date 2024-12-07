@@ -10,6 +10,8 @@ import CategoriesList from "./pages/CategoriesList";
 import CategoriesState from "./context/CategoriesState";
 import MovieDetails from "./pages/MovieDetails";
 import SearchList from "./pages/SearchList";
+import 'font-awesome/css/font-awesome.min.css';
+
 
 function App() {
   const [progress, setProgress] = useState(0);

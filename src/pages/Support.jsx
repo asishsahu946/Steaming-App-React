@@ -11,4 +11,4 @@ function Support() {
   )
 }
 
-export default Support
+export default Support;
