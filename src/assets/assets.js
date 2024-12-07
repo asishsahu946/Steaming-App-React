@@ -7,6 +7,10 @@ import topGradiant from './Fade_Out_Top.png'
 import bottomGradiant from './Fade_Out_Bottom.png'
 import playButton from './playBtn.png'
 import rightbtn from './rightButton.png'
+import realeased from './released-icon.png'
+import available from './available-Icon.png'
+import rating from './rating-Icon.png'
+import genres from './gernes-icon.png'
 
 export const assets = {
     mobileLogo,
@@ -17,5 +21,10 @@ export const assets = {
     topGradiant,
     bottomGradiant,
     playButton,
-    rightbtn
+    rightbtn,
+    realeased,
+    available,
+    rating,
+    genres
+
 }
