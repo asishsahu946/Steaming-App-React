@@ -40,7 +40,7 @@ function CategoriesList() {
   return (
     <div className="text-white px-20 xl-max:px-10 sm-max:px-3 mb-9">
       {/* Genres List */}
-      <div className="flex gap-4 items-center justify-center text-nowrap">
+      <div className="flex gap-4 items-center text-nowrap w-full overflow-scroll">
         {filteredGenresList.map((item, index) => (
           <button
             key={index}
