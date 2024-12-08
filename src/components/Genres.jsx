@@ -35,7 +35,6 @@ function Genres() {
         <h2 className="inline font-bold text-xl md-max:text-lg mb-2 relative bottom-4 left-9 rounded-lg px-3 py-2 bg-red1">Genres</h2>
         <Carousel
           responsive={responsive}
-          removeArrowOnDeviceType={["tablet", "mobile"]}
           infinite={true}
           className=" py-4"
         >

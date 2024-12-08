@@ -2,11 +2,21 @@ import React, { useState, useEffect } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import {
+  Drawer,
+  Button,
+  Typography,
+  IconButton,
+} from "@material-tailwind/react";
 
 function NavigationBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [search, setSearch] = useState('')
   const navigate = useNavigate()
+  const [open, setOpen] = useState(false);
+ 
+  const openDrawer = () => setOpen(true);
+  const closeDrawer = () => setOpen(false);
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -102,11 +112,83 @@ function NavigationBar() {
           </form>
         </div>
         <img
+          onClick={openDrawer}
           className="w-7 sm-max:w-6 lg:hidden"
           src={assets.threeLine}
           alt="Menu Icon"
         />
       </div>
+      <Drawer open={open} onClose={closeDrawer} className="p-4">
+        <div className="mb-6 flex items-center justify-end">
+          <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="h-8 w-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </IconButton>
+        </div>
+
+        {/* Navigation list */}
+        <div className="">
+        <NavLink
+          to="/"
+          onClick={closeDrawer}
+          className='block mt-3'
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/movies"
+          onClick={closeDrawer}
+          className='block mt-3'
+        >
+          Movies
+        </NavLink>
+        <NavLink
+          to="/support"
+          onClick={closeDrawer}
+         className='block mt-3'
+        >
+          Support
+        </NavLink>
+        </div>
+
+        {/* Search box side nav */}
+        <div className="mt-8">
+        <div >
+        <div>
+          <form onSubmit={handleSubmit} className="flex items-center">
+
+        <input
+          type="text"
+          value={search}
+          onChange={changeSerch}
+          className="rounded-xl bg-black6 px-2 py-1"
+        />
+      
+        <button 
+        type="submit"
+        onClick={closeDrawer}
+         className=" hover:scale-110 transition-transform  duration-300 ease-in-out">
+                    <img src={assets.rightbtn} alt="" />
+        </button>
+        
+          </form>
+        </div>
+        
+      </div>
+        </div>
+      </Drawer>
     </div>
   );
 }

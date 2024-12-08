@@ -45,7 +45,7 @@ function SearchList() {
   }, [search]);
 
   return (
-    <div className='text-white px-20 xl-max:px-10 sm-max:px-3 mb-9'>
+    <div className='text-white px-20 xl-max:px-10 sm-max:px-3 mb-9 mt-8'>
       <div  className=" border border-black5 rounded-xl">
         <div className="p-4">
         <h2 className="inline font-bold text-xl md-max:text-lg mb-2 relative bottom-8 left-3 rounded-lg px-3 py-2 bg-red1">{search}</h2>

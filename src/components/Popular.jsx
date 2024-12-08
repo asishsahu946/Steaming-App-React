@@ -55,7 +55,6 @@ const options = {
     <h2 className="inline font-bold text-xl md-max:text-lg mb-2 relative bottom-4 left-9 rounded-lg px-3 py-2 bg-red1">Popular</h2>
     <Carousel
         responsive={responsive}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
          className="py-3"
       >
       {

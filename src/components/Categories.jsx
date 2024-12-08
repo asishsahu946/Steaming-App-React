@@ -35,7 +35,6 @@ function Categories() {
 
         <Carousel
           responsive={responsive}
-          removeArrowOnDeviceType={["tablet", "mobile"]}
           infinite={true}
           className="mt-12 py-4"
         >
