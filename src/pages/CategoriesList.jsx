@@ -44,7 +44,7 @@ function CategoriesList() {
         {filteredGenresList.map((item, index) => (
           <button
             key={index}
-            className="px-3 py-3 bg-black3 rounded-lg font-semibold border border-black5"
+            className="px-3 py-3 bg-black3 rounded-lg font-semibold border text-nowrap border-black5"
             onClick={() => {
               setGenreName(item.name);
               setCurrentPage(1); // Reset page when genre changes
