@@ -40,11 +40,11 @@ function CategoriesList() {
   return (
     <div className="text-white px-20 xl-max:px-10 sm-max:px-3 mb-9">
       {/* Genres List */}
-      <div className="flex gap-4 items-center text-nowrap w-full overflow-scroll">
+      <div className="flex gap-4 items-center text-nowrap w-full overflow-scroll no-scrollbar">
         {filteredGenresList.map((item, index) => (
           <button
             key={index}
-            className="px-3 py-3 bg-black3 rounded-lg font-semibold border text-nowrap border-black5"
+            className="px-3 py-3 bg-black3 rounded-lg font-semibold border border-black5"
             onClick={() => {
               setGenreName(item.name);
               setCurrentPage(1); // Reset page when genre changes
