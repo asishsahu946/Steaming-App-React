@@ -44,7 +44,7 @@ function CategoriesList() {
         {filteredGenresList.map((item, index) => (
           <button
             key={index}
-            className="px-3 py-3 bg-black3 rounded-lg font-semibold border border-black5"
+            className="px-3 py-3 bg-black3 rounded-lg font-semibold border border-black5 transition-transform duration-300 hover:scale-110"
             onClick={() => {
               setGenreName(item.name);
               setCurrentPage(1); // Reset page when genre changes
@@ -64,7 +64,7 @@ function CategoriesList() {
             <h2 className="inline font-bold text-xl md-max:text-lg mb-2 relative bottom-8 left-3 rounded-lg px-3 py-2 bg-red1">{genre.name}</h2>
             <div className="grid grid-cols-5 xl-max:grid-cols-4 md-max:grid-cols-2 sm-max:grid-cols-1 gap-7">
               {paginatedMovies.map((movie, index2) => (
-                <Link to={`/${movie.id}`}  className=" bg-black3 border border-black5 p-3 rounded-xl">
+                <Link to={`/${movie.id}`}  className=" bg-black3 border border-black5 p-3 rounded-xl shadow-lg hover:shadow-white/10  duration-300">
                 <div className="">
                   <img
                     className="rounded-lg w-[250px] mx-auto"
@@ -87,7 +87,7 @@ function CategoriesList() {
       {totalPages > 1 && (
         <div className="flex justify-center mt-4 gap-4 ">
           <button
-            className="px-4 py-2 bg-black3 rounded-lg border border-black5"
+            className="px-4 py-2 bg-black3 rounded-lg border border-black5 transition-transform duration-300 hover:scale-110"
             disabled={currentPage === 1}
             onClick={() => handlePageChange("prev")}
           >
@@ -95,7 +95,7 @@ function CategoriesList() {
           </button>
           <span className="px-4 py-2">{`Page ${currentPage} of ${totalPages}`}</span>
           <button
-            className="px-4 py-2 bg-black3 rounded-lg border border-black5"
+            className="px-4 py-2 bg-black3 rounded-lg border border-black5 transition-transform duration-300 hover:scale-110"
             disabled={currentPage === totalPages}
             onClick={() => handlePageChange("next")}
           >
