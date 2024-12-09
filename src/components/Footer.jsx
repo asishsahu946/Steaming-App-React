@@ -83,7 +83,7 @@ function Footer() {
 
      
       <div className="mt-8 border-t border-gray-700 pt-4 text-xs md:text-sm flex justify-between items-center">
-        <p className="mb-0">&copy;2023 Streamvib, All Rights Reserved</p>
+        <p className="mb-0">Code By Asish And Madhusmita</p>
         <div className="space-x-4">
           <a href="#" className="hover:underline">Terms of Use</a>
           <span>|</span>
