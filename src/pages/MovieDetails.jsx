@@ -21,7 +21,7 @@ function MovieDetails() {
   // const [rated, setRated] = useState(1);
   const [open, setOpen] = React.useState(false);
 
-  const apikey = "0c1cc5e1cde833df76308eb09b05232c";
+  const apikey = import.meta.env.VITE_API_KEY;
 
   const handleOpen = () => setOpen(!open);
 
